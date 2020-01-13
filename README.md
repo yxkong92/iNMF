@@ -6,7 +6,7 @@ Installation
 
 This is the development version of the package. This can be installed via devtools with
 ``` r
-# install.packages("devtools")
+install.packages("devtools")
 devtools::install_github("yxkong92/iNMF")
 ```
 
