@@ -1,11 +1,19 @@
 Package: iNMF
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Zero truncated/inflated Nonnegative Matrix Factorization 
+Version: 1.0
+Date: 2019-12-17
+Authors@R: as.person(c(
+    "Yixin Kong <yxkong@bu.edu> [aut, cre]", 
+    "Hyonho Chun <hyonhochun@kaist.ac.kr> [aut]"
+  ))
+Maintainer: Yixin Kong <yxkong@bu.edu>
+Description: iNMF is an R package for Nonnegative Matrix Factorization. Given a count matrix, it returns a signature matrix and a proportion matrix. 
+License: GPL (>= 2)
+Imports: 
+    Rcpp (>= 1.0.1),
+    MCMCpack,
+    stringr
+LinkingTo: Rcpp
+RoxygenNote: 7.0.1
 Encoding: UTF-8
-LazyData: true
