@@ -18,4 +18,4 @@ After installation, attach the package before using it
 library(iNMF)
 ``` 
 
-Please make sure you have installed the lastest Rtools from https://cran.r-project.org/bin/windows/Rtools/.
+Please make sure you have installed the lastest Rtools from https://cran.r-project.org/bin/windows/Rtools/ before installing iNMF package. 
