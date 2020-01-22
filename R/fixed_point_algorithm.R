@@ -45,7 +45,7 @@
 #' fit2_Bayes<-Bayes_fixedpoint_alpha(X, 3,updateA=1,initial=fit2$A, alpha=c(1,2,3))
 #'
 #' @export
-#' @useDynLib iNMF
+#' @useDynLib iNMF, .registration = TRUE
 #' @importFrom Rcpp sourceCpp
 fixedpoint <- function(X, K,W2=NULL, initial=NULL){
 
