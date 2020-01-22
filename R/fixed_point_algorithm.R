@@ -46,6 +46,7 @@
 #'
 #' @export
 #' @useDynLib iNMF
+#' @importFrom Rcpp sourceCpp
 fixedpoint <- function(X, K,W2=NULL, initial=NULL){
 
   N <- dim(X)[1]
