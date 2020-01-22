@@ -122,6 +122,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// Ksphere
+NumericVector Ksphere(const int K);
+RcppExport SEXP _iNMF_Ksphere(SEXP KSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const int >::type K(KSEXP);
+    rcpp_result_gen = Rcpp::wrap(Ksphere(K));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_iNMF_MCMCsample2", (DL_FUNC) &_iNMF_MCMCsample2, 20},
@@ -129,6 +140,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_iNMF_truncatedlikelihoodnoalpha", (DL_FUNC) &_iNMF_truncatedlikelihoodnoalpha, 7},
     {"_iNMF_fitfixedpoint", (DL_FUNC) &_iNMF_fitfixedpoint, 8},
     {"_iNMF_fitfixedpointAlpha", (DL_FUNC) &_iNMF_fitfixedpointAlpha, 10},
+    {"_iNMF_Ksphere", (DL_FUNC) &_iNMF_Ksphere, 1},
     {NULL, NULL, 0}
 };
 

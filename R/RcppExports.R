@@ -21,3 +21,7 @@ fitfixedpointAlpha <- function(Xv, lambda, N, M, M1, Av, updateA, Wv, K, alpha) 
     .Call('_iNMF_fitfixedpointAlpha', PACKAGE = 'iNMF', Xv, lambda, N, M, M1, Av, updateA, Wv, K, alpha)
 }
 
+Ksphere <- function(K) {
+    .Call('_iNMF_Ksphere', PACKAGE = 'iNMF', K)
+}
+
