@@ -60,7 +60,7 @@ fit1<-fixedpoint(X,2)
 fit1$A
 fit1$W
 #use the output from fit1 as initial matrices for fit1_Bayes
-fit1_Bayes<-Bayes_fixedpoint(X, 2,initial=list(fit1$A,fit1$W))
+fit1_Bayes<-Bayes_fixedpoint(X, 2,initial=list(A=fit1$A,W=fit1$W))
 
 #generate a count matrix X(bulk counts) with single cell counts.
 list2<-samplecounts(N=15,M1=5,Ks=3,P=c(10,15,20),Kb=3,Nm=2,Na=0,Nh=5,alpha=c(1,2,3),missing="logit")

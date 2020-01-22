@@ -521,11 +521,6 @@ double lfunction(NumericVector Av,NumericVector Wv, NumericVector Xv, NumericVec
   return a;
 }
 
-
-
-
-
-
 // [[Rcpp::export]]
 Rcpp::NumericVector MCMCsample2(NumericVector Xv, NumericVector Total, int N, int M, int M1, int K, NumericVector Av, NumericVector Wv, int Mccount, int burnin, NumericVector EqS, NumericVector EqSKappa, NumericVector EqSTau, NumericVector EqKappa,  NumericVector EqKappasq, NumericVector EqTau, NumericVector EqTausq, NumericVector EqOmegaKappasq, NumericVector EqOmegaKappaTau, NumericVector EqOmegaTausq){
   double thres=5e-3,  diff1=1.0,  tot=0.0;
