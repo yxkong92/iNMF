@@ -40,7 +40,7 @@
 #' #Check here: the first 5 columns of W are for bulks and the rest of the columns are for single cells.
 #' trueW<-list2$W
 #' X<-list2$X
-#' fit2<-fixedpoint_alpha(X, K=3,W2=X[,-c(1:5)], updateA=0,  initial=NULL, alpha=c(1,2,3))
+#' fit2<-fixedpoint_alpha(X, K=3,W2=trueW[,-c(1:5)], updateA=0,  initial=NULL, alpha=c(1,2,3))
 #' #use the output from fit2 to estimate signature matrix A and not change A in fit2_Bayes
 #' fit2_Bayes<-Bayes_fixedpoint_alpha(X, 3,updateA=1,initial=fit2$A, alpha=c(1,2,3))
 #'
