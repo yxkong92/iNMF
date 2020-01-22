@@ -272,7 +272,7 @@ Bayes_fixedpoint_alpha <- function(X, K,W2=NULL,updateA = 0, initial=NULL, alpha
   EqOmegaKappaTau <- rep(0, N*M)
   EqOmegaTausq <- rep(0, N*M)
 
-  output <- MCMCsample2(matrix(Words, nc=1),Total, N,M, M1, K,matrix(A, nc=1), updateA, matrix(t(W), 1), alpha, MCcount,burnin,EqS, EqSKappa, EqSTau, EqKappa, EqKappasq, EqTau, EqTausq, EqOmegaKappasq, EqOmegaKappaTau,EqOmegaTausq)
+  output <- MCMCsample2alpha(matrix(Words, nc=1),Total, N,M, M1, K,matrix(A, nc=1), updateA, matrix(t(W), 1), alpha, MCcount,burnin,EqS, EqSKappa, EqSTau, EqKappa, EqKappasq, EqTau, EqTausq, EqOmegaKappasq, EqOmegaKappaTau,EqOmegaTausq)
   return(list( A= matrix(output[1:(N*K)], nc=K), W=t(matrix(output[(N*K+1):((N+M)*K)], nc=K)), likelihood=output[(N+M)*K+1]))
 }
 
