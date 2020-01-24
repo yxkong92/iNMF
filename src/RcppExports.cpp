@@ -133,6 +133,64 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// c2cpp
+NumericVector c2cpp(NumericVector X, int n, int m);
+RcppExport SEXP _iNMF_c2cpp(SEXP XSEXP, SEXP nSEXP, SEXP mSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type X(XSEXP);
+    Rcpp::traits::input_parameter< int >::type n(nSEXP);
+    Rcpp::traits::input_parameter< int >::type m(mSEXP);
+    rcpp_result_gen = Rcpp::wrap(c2cpp(X, n, m));
+    return rcpp_result_gen;
+END_RCPP
+}
+// m3tildcpp
+NumericVector m3tildcpp(NumericVector X, NumericVector W, NumericVector C2, NumericVector m1, double a0, int n, int m, int p);
+RcppExport SEXP _iNMF_m3tildcpp(SEXP XSEXP, SEXP WSEXP, SEXP C2SEXP, SEXP m1SEXP, SEXP a0SEXP, SEXP nSEXP, SEXP mSEXP, SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type X(XSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type W(WSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type C2(C2SEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type m1(m1SEXP);
+    Rcpp::traits::input_parameter< double >::type a0(a0SEXP);
+    Rcpp::traits::input_parameter< int >::type n(nSEXP);
+    Rcpp::traits::input_parameter< int >::type m(mSEXP);
+    Rcpp::traits::input_parameter< int >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(m3tildcpp(X, W, C2, m1, a0, n, m, p));
+    return rcpp_result_gen;
+END_RCPP
+}
+// Npowercpp
+NumericVector Npowercpp(int N, NumericVector m3, NumericVector theta, int p);
+RcppExport SEXP _iNMF_Npowercpp(SEXP NSEXP, SEXP m3SEXP, SEXP thetaSEXP, SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type N(NSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type m3(m3SEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type theta(thetaSEXP);
+    Rcpp::traits::input_parameter< int >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(Npowercpp(N, m3, theta, p));
+    return rcpp_result_gen;
+END_RCPP
+}
+// lambdacpp
+double lambdacpp(int p, NumericVector m3, NumericVector theta);
+RcppExport SEXP _iNMF_lambdacpp(SEXP pSEXP, SEXP m3SEXP, SEXP thetaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type p(pSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type m3(m3SEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type theta(thetaSEXP);
+    rcpp_result_gen = Rcpp::wrap(lambdacpp(p, m3, theta));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_iNMF_MCMCsample2", (DL_FUNC) &_iNMF_MCMCsample2, 20},
@@ -141,6 +199,10 @@ static const R_CallMethodDef CallEntries[] = {
     {"_iNMF_fitfixedpoint", (DL_FUNC) &_iNMF_fitfixedpoint, 8},
     {"_iNMF_fitfixedpointAlpha", (DL_FUNC) &_iNMF_fitfixedpointAlpha, 10},
     {"_iNMF_Ksphere", (DL_FUNC) &_iNMF_Ksphere, 1},
+    {"_iNMF_c2cpp", (DL_FUNC) &_iNMF_c2cpp, 3},
+    {"_iNMF_m3tildcpp", (DL_FUNC) &_iNMF_m3tildcpp, 8},
+    {"_iNMF_Npowercpp", (DL_FUNC) &_iNMF_Npowercpp, 4},
+    {"_iNMF_lambdacpp", (DL_FUNC) &_iNMF_lambdacpp, 3},
     {NULL, NULL, 0}
 };
 

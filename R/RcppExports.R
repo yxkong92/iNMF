@@ -25,3 +25,19 @@ Ksphere <- function(K) {
     .Call(`_iNMF_Ksphere`, K)
 }
 
+c2cpp <- function(X, n, m) {
+    .Call(`_iNMF_c2cpp`, X, n, m)
+}
+
+m3tildcpp <- function(X, W, C2, m1, a0, n, m, p) {
+    .Call(`_iNMF_m3tildcpp`, X, W, C2, m1, a0, n, m, p)
+}
+
+Npowercpp <- function(N, m3, theta, p) {
+    .Call(`_iNMF_Npowercpp`, N, m3, theta, p)
+}
+
+lambdacpp <- function(p, m3, theta) {
+    .Call(`_iNMF_lambdacpp`, p, m3, theta)
+}
+
