@@ -82,7 +82,7 @@ fixedpoint <- function(X, K,W2=NULL, initial=NULL){
     M1 <- M
     if(!is.list(initial)){
       A  <-  t(rdirichlet(K, rep(1,N)))
-      W  <- cbind(t(rdirichlet(M1, rep(1, K))) , W2)
+      W  <- t(rdirichlet(M1, rep(1, K))) 
     }else{
       A <-  initial$A
       W <- initial$W
