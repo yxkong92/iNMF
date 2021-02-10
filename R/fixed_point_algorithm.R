@@ -227,7 +227,7 @@ Bayes_fixedpoint_alpha <- function(X, K,W2=NULL,updateA = 0, initial=NULL, alpha
       A  <-   Words[, (M1+1):M]%*%t(W2) + 0.02*t(rdirichlet(K, rep(1,N)))
       A <-  A %*% diag(1/apply(A, 2, sum))
       }
-      W  <- cbind(t(rdirichlet(M1, rep(1, K))) , W2)
+      W  <- cbind(t(rdirichlet(M1, alpha)) , W2)
     }else{
       A <-  initial$A
       W <- initial$W
@@ -240,7 +240,7 @@ Bayes_fixedpoint_alpha <- function(X, K,W2=NULL,updateA = 0, initial=NULL, alpha
       }else{
       A  <-  t(rdirichlet(K, rep(1,N)))
       }
-      W  <- t(rdirichlet(M1, rep(1, K))) 
+      W  <- t(rdirichlet(M1, alpha)) 
     }else{
       A <-  initial$A
       W <- initial$W
