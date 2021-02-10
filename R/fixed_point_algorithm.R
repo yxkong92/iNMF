@@ -46,6 +46,7 @@
 #' @export
 #' @useDynLib iNMF, .registration = TRUE
 #' @importFrom Rcpp sourceCpp
+#' @import MCMCpack
 fixedpoint <- function(X, K,W2=NULL, initial=NULL){
 
   N <- dim(X)[1]
