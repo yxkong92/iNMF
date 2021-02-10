@@ -40,8 +40,8 @@
 #' #Check here: the first 5 columns of W are for bulks and the rest of the columns are for single cells.
 #' trueW<-list2$W
 #' fit2<-fixedpoint_alpha(X, K=3,W2=trueW[,-c(1:5)], updateA=0,  initial=NULL, alpha=c(1,2,3))
-#' #use the output from fit2 to estimate signature matrix A and not change A in fit2_Bayes
-#' fit2_Bayes<-Bayes_fixedpoint_alpha(X, 3,updateA=1,initial=fit2$A, alpha=c(1,2,3))
+#' #use the output from fit2 to estimate matrix W but don't change A in fit2_Bayes
+#' fit2_Bayes<-Bayes_fixedpoint_alpha(X, 3,updateA=1,initial=list(A=fit2$A,W=fit2$W), alpha=c(1,2,3))
 #'
 #' @export
 #' @useDynLib iNMF, .registration = TRUE
