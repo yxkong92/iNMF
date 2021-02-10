@@ -138,7 +138,7 @@ fixedpoint_alpha <- function(X, K,W2=NULL, updateA=0,  initial=NULL, alpha){
       }else{
         A  <-  t(rdirichlet(K, rep(1,N)))
       }
-      W  <- cbind(t(rdirichlet(M1, alpha)) , W2)
+      W  <- t(rdirichlet(M1, alpha)) 
     }else{
       A <-  initial$A
       W <- initial$W
@@ -179,7 +179,7 @@ Bayes_fixedpoint <- function(X, K,W2=NULL, initial=NULL){
     M1 <- M
     if(!is.list(initial)){
       A  <-  t(rdirichlet(K, rep(1,N)))
-      W  <- cbind(t(rdirichlet(M1, rep(1, K))) , W2)
+      W  <- t(rdirichlet(M1, rep(1, K))) 
     }else{
       A <-  initial$A
       W <- initial$W
@@ -243,7 +243,7 @@ Bayes_fixedpoint_alpha <- function(X, K,W2=NULL,updateA = 0, initial=NULL, alpha
       }else{
       A  <-  t(rdirichlet(K, rep(1,N)))
       }
-      W  <- cbind(t(rdirichlet(M1, rep(1, K))) , W2)
+      W  <- t(rdirichlet(M1, rep(1, K))) 
     }else{
       A <-  initial$A
       W <- initial$W
