@@ -435,12 +435,8 @@ void testalpha(NumericVector Av, int updateA,NumericVector Wv, NumericVector Xv,
           /* added*/
           if(tot2 < 1e-32){
             tot2 = 1e-32;
-          }
-          //
-          
-          r2[m*k+j] = (Wv[m*k+j]*tot)/tot2;
-          
-          //	 r2[m*k+j] = (Wv[m*k+j]*tot + alpha[k] - 1.0)/tot2;
+          }       
+          r2[m*k+j] = (Wv[m*k+j]*tot + alpha[k] - 1.0)/tot2;
         }
       }
       for(j=0; j < M1; j++){
