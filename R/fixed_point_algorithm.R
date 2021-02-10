@@ -48,7 +48,7 @@
 #' @importFrom Rcpp sourceCpp
 #' @import MCMCpack
 fixedpoint <- function(X, K,W2=NULL, initial=NULL){
-
+  library(MCMCpack)
   N <- dim(X)[1]
   M <- dim(X)[2]
 
@@ -103,7 +103,7 @@ fixedpoint <- function(X, K,W2=NULL, initial=NULL){
 #' a proportion matrix W and the value of the likelihood for the last iteration.
 #' @export
 fixedpoint_alpha <- function(X, K,W2=NULL, updateA=0,  initial=NULL, alpha){
-
+  library(MCMCpack)
   Words<-X
   N <- dim(Words)[1]
   M <- dim(Words)[2]
@@ -160,6 +160,7 @@ fixedpoint_alpha <- function(X, K,W2=NULL, updateA=0,  initial=NULL, alpha){
 #' a proportion matrix W and the value of the likelihood for the last iteration.
 #' @export
 Bayes_fixedpoint <- function(X, K,W2=NULL, initial=NULL){
+  library(MCMCpack)
   Words<-X
   N <- dim(Words)[1]
   M <- dim(Words)[2]
@@ -214,7 +215,7 @@ Bayes_fixedpoint <- function(X, K,W2=NULL, initial=NULL){
 #' a proportion matrix W and the value of the likelihood for the last iteration.
 #' @export
 Bayes_fixedpoint_alpha <- function(X, K,W2=NULL,updateA = 0, initial=NULL, alpha){
-
+  library(MCMCpack)
   Words<-X
   N <- dim(Words)[1]
   M <- dim(Words)[2]
