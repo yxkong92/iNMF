@@ -51,29 +51,22 @@ fixedpoint <- function(X, K,W2=NULL, initial=NULL){
   N <- dim(X)[1]
   M <- dim(X)[2]
 
-  if(!is.null(W2)){
+   if(!is.null(W2)){
     M1 <- M - dim(W2)[2]
     if(!is.list(initial)){
-
-      Atemp <- X[,(M1+1):M]%*%diag(1/apply(X[,(M1+1):M], 2, sum))
-      A  <-   (Atemp%*%t(W2))%*%diag(1/apply(t(W2), 2, sum))
-      index <- which(apply(t(W2), 2 , sum) == 0)
-      if(length(index)> 0){
-        A[, index] <- t(rdirichlet(length(index), rep(1,N)))
-      }
-
-
-      if(!is.null(markergene)){
-        for(ii in 1:length(markergene)){
-          A[markergene[ii], -celltype[ii]] <-  rep(1e-8, K-1)
+      if(is.matrix(initial)){
+        A<-initial
+      }else{
+        Atemp <- Words[,(M1+1):M]%*%diag(1/apply(Words[,(M1+1):M], 2, sum))
+        A  <-   (Atemp%*%t(W2))%*%diag(1/apply(t(W2), 2, sum))
+        index <- which(apply(t(W2), 2 , sum) == 0)
+        if(length(index)> 0){
+          A[, index] <- t(rdirichlet(length(index), rep(1,N)))
         }
-      }
-
-      if(is.null(markergene)){
         A  <-  A + 0.02*t(rdirichlet(K, rep(1,N)))
+        A <-  A %*% diag(1/apply(A, 2, sum))
       }
-      A <-  A %*% diag(1/apply(A, 2, sum))
-      W  <- cbind(t(rdirichlet(M1, rep(1, K))) , W2)
+      W  <- cbind(t(rdirichlet(M1, rep(1,K))) , W2)
     }else{
       A <-  initial$A
       W <- initial$W
@@ -81,8 +74,12 @@ fixedpoint <- function(X, K,W2=NULL, initial=NULL){
   }else{
     M1 <- M
     if(!is.list(initial)){
-      A  <-  t(rdirichlet(K, rep(1,N)))
-      W  <- t(rdirichlet(M1, rep(1, K))) 
+      if(is.matrix(initial)){
+        A<-initial
+      }else{
+        A  <-  t(rdirichlet(K, rep(1,N)))
+      }
+      W  <- t(rdirichlet(M1, rep(1,K))) 
     }else{
       A <-  initial$A
       W <- initial$W
